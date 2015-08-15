@@ -54,6 +54,12 @@
 
 #pragma mark - UILabel
 
+- (CGSize)sizeThatFits:(CGSize)size {
+    CGSize horizontallyPaddedSize = CGSizeMake(size.width - _insets.left - _insets.right,size.height);
+    CGSize sizeToFit = [super sizeThatFits:size];
+    return CGSizeMake(sizeToFit.width, sizeToFit.height + _insets.top + _insets.bottom);
+}
+
 - (void)drawTextInRect:(CGRect)rect {
 	rect = UIEdgeInsetsInsetRect(rect, self.insets);
 
